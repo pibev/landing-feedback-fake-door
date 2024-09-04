@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback de la App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            direction: rtl; /* Cambia la dirección a derecha a izquierda */
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            font-size: 2em;
+            color: #ddd;
+            cursor: pointer;
+        }
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #f5a623;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>¿No estás disfrutando la app?</h2>
+        <p>Por favor, cuéntanos más. Tu feedback es muy valioso para nosotros.</p>
+
+        <!-- Estrellas (de derecha a izquierda) -->
+        <div class="star-rating">
+            <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+            <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+            <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+            <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+        </div>
+
+        <!-- Comentarios -->
+        <textarea placeholder="Déjanos tu comentario"></textarea>
+
+        <!-- Botón enviar -->
+        <button type="submit" onclick="fakeSubmit()">Enviar</button>
+    </div>
+
+    <script>
+        function fakeSubmit() {
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const comment = document.querySelector('textarea').value;
+
+            if (!rating) {
+                alert('Por favor selecciona una puntuación.');
+                return;
+            }
+
+            alert('Gracias por tu feedback. Lo tendremos en cuenta.');
+            // Aquí simplemente terminamos la interacción sin enviar datos
+        }
+    </script>
+</body>
+</html>
